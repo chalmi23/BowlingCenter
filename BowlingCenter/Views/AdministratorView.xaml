@@ -38,16 +38,13 @@
 
         <DockPanel Background="#363636" Grid.Row="0" Grid.Column="0" Grid.RowSpan="5">
             <StackPanel>
-            <Button Content="BOWLING" FontSize="30" Background="#4a4a4a" FontFamily="Candara Light" FontStyle="Italic"/>
-                <Button Content="DARTS" FontSize="30" Background="#4a4a4a" FontFamily="Candara Light" FontStyle="Italic" FontWeight="Bold"/>
-                <Button Content="BILLIARDS" FontSize="30" Background="#4a4a4a" FontFamily="Candara Light" FontStyle="Italic" FontWeight="Bold"/>
+                <Button Content="BOWLING" Click="BowlingButton_Click" FontSize="30" Background="#4a4a4a" FontFamily="Candara Light" FontStyle="Italic"/>
+                <Button Content="DARTS" Click="DartsButton_Click" FontSize="30" Background="#4a4a4a" FontFamily="Candara Light" FontStyle="Italic" FontWeight="Bold"/>
+                <Button Content="BILLIARDS" Click="BilliardsButton_Click" FontSize="30" Background="#4a4a4a" FontFamily="Candara Light" FontStyle="Italic" FontWeight="Bold"/>
             </StackPanel>
         </DockPanel>
-        <DockPanel Background="#4a4a4a" Grid.Row="0" Grid.Column="1" Grid.RowSpan="5" Grid.ColumnSpan="4">
-            <StackPanel>
-                
-            </StackPanel>
-        </DockPanel>
+
+        <ContentControl Content="{Binding}" Grid.Row="0" Grid.Column="1" Grid.RowSpan="5" Grid.ColumnSpan="4"/>
 
     </Grid>
 </UserControl>

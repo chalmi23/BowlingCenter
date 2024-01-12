@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BowlingCenter.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,20 @@ namespace BowlingCenter.Views
         public AdministratorView()
         {
             InitializeComponent();
+            DataContext = new BowlingViewModel();
+        }
+
+        private void BowlingButton_Click(object sender, RoutedEventArgs e)
+        {
+            DataContext = new BowlingViewModel();
+        }
+        private void DartsButton_Click(object sender, RoutedEventArgs e)
+        {
+            DataContext = new DartsViewModel();
+        }
+        private void BilliardsButton_Click(object sender, RoutedEventArgs e)
+        {
+            DataContext = new BilliardsViewModel();
         }
     }
 }

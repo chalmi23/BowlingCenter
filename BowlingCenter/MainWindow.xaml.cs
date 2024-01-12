@@ -25,8 +25,9 @@ namespace BowlingCenter
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            if(usernameTextBox.Text == "dupa") DataContext = new AdministratorViewModel();
-            else MessageBox.Show("Nieprawidłowy login lub hasło.", "Błąd logowania", MessageBoxButton.OK, MessageBoxImage.Error);
+            //if(usernameTextBox.Text == "dupa") 
+            //else MessageBox.Show("Nieprawidłowy login lub hasło.", "Błąd logowania", MessageBoxButton.OK, MessageBoxImage.Error);
+            DataContext = new AdministratorViewModel();
         }
     }
 }
