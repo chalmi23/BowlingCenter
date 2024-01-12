@@ -13,6 +13,25 @@
         <DataTemplate x:Name="AdministratorViewTemplate" DataType="{x:Type viewmodels:AdministratorViewModel}">
             <views:AdministratorView DataContext="{Binding}"/>
         </DataTemplate>
+        <ControlTemplate x:Key="NoMouseOverButtonTemplate"   
+                 TargetType="Button">
+            <Border Background="{TemplateBinding Background}"  
+          BorderBrush="{TemplateBinding BorderBrush}"  
+          BorderThickness="{TemplateBinding BorderThickness}">
+                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"  
+                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+            </Border>
+
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsEnabled"  
+             Value="False">
+                    <Setter Property="Background"  
+              Value="{x:Static SystemColors.ControlLightBrush}" />
+                    <Setter Property="Foreground"  
+              Value="{x:Static SystemColors.GrayTextBrush}" />
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
     </Window.Resources>
 
     <Grid Background="#474747" >
@@ -45,26 +64,33 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
+        <ContentControl Content="{Binding}" Grid.Row="0" Grid.Column="0" Grid.RowSpan="14" Grid.ColumnSpan="10"/>
+
         <Viewbox Grid.Column="3" Grid.ColumnSpan="4" Grid.RowSpan="6">
             <Image HorizontalAlignment="Center" Height="255" VerticalAlignment="Center" Width="281" Source="/logo.png"/>
         </Viewbox>
         <Viewbox Grid.Column="2" Grid.ColumnSpan="6" Grid.Row="6" Grid.RowSpan="2">
-            <TextBox x:Name="usernameTextBox" HorizontalAlignment="Center" TextWrapping="Wrap" Text="username" VerticalAlignment="Center" Width="300" FontSize="25" FlowDirection="RightToLeft" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Bahnschrift" Background="#FF656565" OpacityMask="Black" BorderBrush="{x:Null}">
-                <TextBox.Foreground>
-                    <SolidColorBrush Color="Black" Opacity="0.7"/>
-                </TextBox.Foreground>
-            </TextBox>
+            <Border BorderBrush="#FF656565" BorderThickness="11" CornerRadius="15" Background="#FF797980">
+                <TextBox x:Name="usernameTextBox" HorizontalAlignment="Center" TextWrapping="Wrap" Text="username" VerticalAlignment="Center" Width="300" FontSize="25" FlowDirection="RightToLeft" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Bahnschrift" Background="#FF656565" OpacityMask="Black" SelectionOpacity="0" BorderThickness="0,0,0,0" SelectionBrush="#FF797980" BorderBrush="#FF474747">
+                    <TextBox.Foreground>
+                        <SolidColorBrush Color="Black" Opacity="0.7"/>
+                    </TextBox.Foreground>
+                </TextBox>
+            </Border>
         </Viewbox>
         <Viewbox Grid.Column="2" Grid.ColumnSpan="6" Grid.Row="8" Grid.RowSpan="2">
-            <TextBox x:Name="passwordTextBox" HorizontalAlignment="Center" TextWrapping="Wrap" Text="password" VerticalAlignment="Center" Width="300" FontSize="25" FlowDirection="RightToLeft" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Bahnschrift" Background="#FF656565" BorderBrush="{x:Null}">
-                <TextBox.Foreground>
-                    <SolidColorBrush Color="Black" Opacity="0.7"/>
-                </TextBox.Foreground>
-            </TextBox>
+            <Border BorderBrush="#FF656565" BorderThickness="11" CornerRadius="15" Background="#FF797980">
+                <TextBox x:Name="passwordTextBox" HorizontalAlignment="Center" TextWrapping="Wrap" Text="password" VerticalAlignment="Center" Width="300" FontSize="25" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Bahnschrift" Background="#FF656565" OpacityMask="Black" SelectionOpacity="0" BorderThickness="0,0,0,0" SelectionBrush="#FF797980" BorderBrush="#FF474747">
+                    <TextBox.Foreground>
+                        <SolidColorBrush Color="Black" Opacity="0.7"/>
+                    </TextBox.Foreground>
+                </TextBox>
+            </Border>
         </Viewbox>
         <Viewbox Grid.Column="3" Grid.ColumnSpan="4" Grid.Row="11"  Grid.RowSpan="2">
-            <Button Content="LOGIN" Click ="LoginButton_Click" FontSize="8" Background="#FFA4A4A4" FontFamily="Bahnschrift SemiBold SemiCondensed" FontStyle="Italic" FontWeight="Bold"/>
+            <Border BorderBrush="#FF656565" BorderThickness="30" CornerRadius="50" Background="#FF656565" Width="303" Height="170">
+                <Button Content="LOGIN" Template="{StaticResource NoMouseOverButtonTemplate}" Click ="LoginButton_Click" FontSize="100" Background="#FF656565" FontFamily="Bahnschrift SemiLight SemiCondensed" BorderBrush="#FF656565" BorderThickness="0,0,0,0" IsDefault="True"/>
+            </Border>
         </Viewbox>
-        <ContentControl Content="{Binding}" Grid.Row="0" Grid.Column="0" Grid.RowSpan="14" Grid.ColumnSpan="10"/>
     </Grid>
 </Window>

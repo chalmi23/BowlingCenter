@@ -29,5 +29,6 @@ namespace BowlingCenter
             //else MessageBox.Show("Nieprawidłowy login lub hasło.", "Błąd logowania", MessageBoxButton.OK, MessageBoxImage.Error);
             DataContext = new AdministratorViewModel();
         }
+
     }
 }
