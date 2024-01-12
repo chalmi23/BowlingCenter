@@ -6,8 +6,5 @@
              xmlns:local="clr-namespace:BowlingCenter.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="Beige">
-        <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="519,166,0,0" VerticalAlignment="Top"/>
-
-    </Grid>
+    <Grid Background="Beige"/>
 </UserControl>

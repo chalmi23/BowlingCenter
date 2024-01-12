@@ -8,27 +8,26 @@
         xmlns:local="clr-namespace:BowlingCenter"
         mc:Ignorable="d"
         Title="Logowanie BowlingCenter" Height="450" Width="800"
-        MinWidth="800" MinHeight="600" MaxWidth="1680" MaxHeight="1050">
+        MinWidth="800" MinHeight="600" MaxWidth="1680" MaxHeight="1050" Background="Red">
     <Window.Resources>
         <DataTemplate x:Name="AdministratorViewTemplate" DataType="{x:Type viewmodels:AdministratorViewModel}">
             <views:AdministratorView DataContext="{Binding}"/>
         </DataTemplate>
     </Window.Resources>
 
-    <Grid Background="#474747">
-
+    <Grid Background="#474747" >
+        <Image HorizontalAlignment="Center" Height="255" VerticalAlignment="Center" Width="281" Source="/logo.png" Margin="0,-270,0,0"/>
+        <Button Content="LOGIN" Click ="LoginButton_Click"  VerticalAlignment="Center" HorizontalAlignment="Center" Height="70" Width="168" FontSize="30" Margin="0,374,0,0" Background="#FFA4A4A4" FontFamily="Bahnschrift SemiBold SemiCondensed" FontStyle="Italic" FontWeight="Bold"/>
+        <TextBox x:Name="usernameTextBox" HorizontalAlignment="Center" TextWrapping="Wrap" Text="username" VerticalAlignment="Center" Width="300" FontSize="30" FlowDirection="RightToLeft" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,70,0,0" FontFamily="Bahnschrift" Background="#FF656565" OpacityMask="Black" BorderBrush="{x:Null}" Height="52">
+            <TextBox.Foreground>
+                <SolidColorBrush Color="Black" Opacity="0.7"/>
+            </TextBox.Foreground>
+        </TextBox>
+        <TextBox x:Name="passwordTextBox" HorizontalAlignment="Center" TextWrapping="Wrap" Text="password" VerticalAlignment="Center" Width="300" FontSize="30" FlowDirection="RightToLeft" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Bahnschrift" Background="#FF656565" BorderBrush="{x:Null}" Height="52" Margin="0,200,0,0">
+            <TextBox.Foreground>
+                <SolidColorBrush Color="Black" Opacity="0.7"/>
+            </TextBox.Foreground>
+        </TextBox>
         <ContentControl Content="{Binding}"/>
-
-        <Button Content="LOGIN" Click ="LoginButton_Click"  VerticalAlignment="Top" HorizontalAlignment="Center" Height="70" Width="168" FontSize="30" Margin="0,374,0,0" Background="#FFA4A4A4" FontFamily="Bahnschrift SemiBold SemiCondensed" FontStyle="Italic" FontWeight="Bold"/>
-        <TextBox x:Name="usernameTextBox" HorizontalAlignment="Center" TextWrapping="Wrap" Text="username" VerticalAlignment="Top" Width="300" FontSize="30" FlowDirection="RightToLeft" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,167,0,0" FontFamily="Bahnschrift" Background="#FF656565" OpacityMask="Black" BorderBrush="{x:Null}" Height="52">
-            <TextBox.Foreground>
-                <SolidColorBrush Color="Black" Opacity="0.7"/>
-            </TextBox.Foreground>
-        </TextBox>
-        <TextBox x:Name="passwordTextBox" HorizontalAlignment="Center" TextWrapping="Wrap" Text="password" VerticalAlignment="Center" Width="300" FontSize="30" FlowDirection="RightToLeft" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Bahnschrift" Background="#FF656565" BorderBrush="{x:Null}" Height="52">
-            <TextBox.Foreground>
-                <SolidColorBrush Color="Black" Opacity="0.7"/>
-            </TextBox.Foreground>
-        </TextBox>
     </Grid>
 </Window>
