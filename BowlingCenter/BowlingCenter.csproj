@@ -56,8 +56,20 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ViewModels\AdministratorViewModel.cs" />
+    <Compile Include="ViewModels\BilliardsViewModel.cs" />
+    <Compile Include="ViewModels\BowlingViewModel.cs" />
+    <Compile Include="ViewModels\DartsViewModel.cs" />
     <Compile Include="Views\AdministratorView.xaml.cs">
       <DependentUpon>AdministratorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BilliardsView.xaml.cs">
+      <DependentUpon>BilliardsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BowlingView.xaml.cs">
+      <DependentUpon>BowlingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DartsView.xaml.cs">
+      <DependentUpon>DartsView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -72,6 +84,18 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\AdministratorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BilliardsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BowlingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DartsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

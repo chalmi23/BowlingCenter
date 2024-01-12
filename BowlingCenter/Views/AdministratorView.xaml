@@ -3,8 +3,51 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:BowlingCenter.Views"
+             xmlns:viewmodels="clr-namespace:BowlingCenter.ViewModels"
+             xmlns:views="clr-namespace:BowlingCenter.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="Beige"/>
+    
+    <UserControl.Resources>
+        <DataTemplate x:Name="BowlingViewTemplate" DataType="{x:Type viewmodels:BowlingViewModel}">
+            <views:BowlingView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="BilliardsViewTemplate" DataType="{x:Type viewmodels:BilliardsViewModel}">
+            <views:BilliardsView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="DartsViewTemplate" DataType="{x:Type viewmodels:DartsViewModel}">
+            <views:DartsView DataContext="{Binding}"/>
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <DockPanel Background="#363636" Grid.Row="0" Grid.Column="0" Grid.RowSpan="5">
+            <StackPanel>
+            <Button Content="BOWLING" FontSize="30" Background="#4a4a4a" FontFamily="Candara Light" FontStyle="Italic"/>
+                <Button Content="DARTS" FontSize="30" Background="#4a4a4a" FontFamily="Candara Light" FontStyle="Italic" FontWeight="Bold"/>
+                <Button Content="BILLIARDS" FontSize="30" Background="#4a4a4a" FontFamily="Candara Light" FontStyle="Italic" FontWeight="Bold"/>
+            </StackPanel>
+        </DockPanel>
+        <DockPanel Background="#4a4a4a" Grid.Row="0" Grid.Column="1" Grid.RowSpan="5" Grid.ColumnSpan="4">
+            <StackPanel>
+                
+            </StackPanel>
+        </DockPanel>
+
+    </Grid>
 </UserControl>
