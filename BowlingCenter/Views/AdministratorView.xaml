@@ -6,7 +6,7 @@
              xmlns:viewmodels="clr-namespace:BowlingCenter.ViewModels"
              xmlns:views="clr-namespace:BowlingCenter.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="800" d:DesignWidth="1200">
     
     <UserControl.Resources>
         <DataTemplate x:Name="BowlingViewTemplate" DataType="{x:Type viewmodels:BowlingViewModel}">
