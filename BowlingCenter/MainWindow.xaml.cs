@@ -1,19 +1,8 @@
-﻿using BowlingCenter.ViewModels;
-using BowlingCenter.Views;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Windows.Forms;
 
 namespace BowlingCenter
 {
@@ -23,18 +12,37 @@ namespace BowlingCenter
         {
             InitializeComponent();
         }
+        string connectionString = ConfigurationManager.AppSettings["ConnectionString"];
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            //if(usernameTextBox.Text == "dupa") 
-            //else MessageBox.Show("Nieprawidłowy login lub hasło.", "Błąd logowania", MessageBoxButton.OK, MessageBoxImage.Error);
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string loginQuery = "SELECT * FROM users WHERE username = @username AND password = @password";
+                using (SqlCommand command = new SqlCommand(loginQuery, connection))
+                {
+                    command.Parameters.AddWithValue("@username", usernameTextBox.Text.ToString());
+                    command.Parameters.AddWithValue("@password", passwordTextBox.Text.ToString());
 
-            AdministratorWindow administratorWindow = new AdministratorWindow();
-            administratorWindow.Show();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            AdministratorWindow administratorWindow = new AdministratorWindow();
+                            administratorWindow.Show();
 
-            MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
-            mainWindow.Close();
+                            MainWindow mainWindow = System.Windows.Application.Current.MainWindow as MainWindow;
+                            mainWindow.Close();
+                        }
+                        else
+                        {
+                            System.Windows.Forms.MessageBox.Show("Invalid username or password!", "BowlingCenter", MessageBoxButtons.OK);
+                        }
+                    }
+                }
+            }
         }
-
+        
     }
 }

@@ -59,9 +59,9 @@
 
         <DockPanel Background="#363636" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="15" RenderTransformOrigin="0.508,0.49">
             <StackPanel>
-                <Button Content="BOWLING" Click="BowlingButton_Click" FontSize="30" Background="#4a4a4a" FontFamily="Candara Light" FontStyle="Italic"/>
-                <Button Content="DARTS" Click="DartsButton_Click" FontSize="30" Background="#4a4a4a" FontFamily="Candara Light" FontStyle="Italic" FontWeight="Bold"/>
-                <Button Content="BILLIARDS" Click="BilliardsButton_Click" FontSize="30" Background="#4a4a4a" FontFamily="Candara Light" FontStyle="Italic" FontWeight="Bold"/>
+                <Button Content="BOWLING" Click="changeDataContext" FontSize="30" Background="#4a4a4a" FontFamily="Candara Light" FontStyle="Italic"/>
+                <Button Content="DARTS" Click="changeDataContext" FontSize="30" Background="#4a4a4a" FontFamily="Candara Light" FontStyle="Italic" FontWeight="Bold"/>
+                <Button Content="BILLIARDS" Click="changeDataContext" FontSize="30" Background="#4a4a4a" FontFamily="Candara Light" FontStyle="Italic" FontWeight="Bold"/>
             </StackPanel>
         </DockPanel>
 

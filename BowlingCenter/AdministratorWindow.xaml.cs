@@ -15,27 +15,19 @@ using System.Windows.Shapes;
 
 namespace BowlingCenter
 {
-    /// <summary>
-    /// Logika interakcji dla klasy Window1.xaml
-    /// </summary>
     public partial class AdministratorWindow : Window
     {
         public AdministratorWindow()
         {
             InitializeComponent();
-        }
-
-        private void BowlingButton_Click(object sender, RoutedEventArgs e)
-        {
             DataContext = new BowlingViewModel();
         }
-        private void DartsButton_Click(object sender, RoutedEventArgs e)
+
+        private void changeDataContext(object sender, RoutedEventArgs e) 
         {
-            DataContext = new DartsViewModel();
-        }
-        private void BilliardsButton_Click(object sender, RoutedEventArgs e)
-        {
-            DataContext = new BilliardsViewModel();
+           if(sender.ToString() == "System.Windows.Controls.Button: BOWLING") DataContext = new BowlingViewModel();
+           else if(sender.ToString() == "System.Windows.Controls.Button: DARTS") DataContext = new DartsViewModel();
+           else if(sender.ToString() == "System.Windows.Controls.Button: BILLIARDS") DataContext = new BilliardsViewModel();
         }
     }
 }
