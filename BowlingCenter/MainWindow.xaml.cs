@@ -1,4 +1,5 @@
 ﻿using BowlingCenter.ViewModels;
+using BowlingCenter.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +28,12 @@ namespace BowlingCenter
         {
             //if(usernameTextBox.Text == "dupa") 
             //else MessageBox.Show("Nieprawidłowy login lub hasło.", "Błąd logowania", MessageBoxButton.OK, MessageBoxImage.Error);
-            DataContext = new AdministratorViewModel();
+
+            AdministratorWindow administratorWindow = new AdministratorWindow();
+            administratorWindow.Show();
+
+            MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
+            mainWindow.Close();
         }
 
     }

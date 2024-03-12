@@ -10,9 +10,6 @@
         Title="Logowanie BowlingCenter" Height="700" Width="600"
         MinWidth="300" MinHeight="300">
     <Window.Resources>
-        <DataTemplate x:Name="AdministratorViewTemplate" DataType="{x:Type viewmodels:AdministratorViewModel}">
-            <views:AdministratorView DataContext="{Binding}"/>
-        </DataTemplate>
         <ControlTemplate x:Key="NoMouseOverButtonTemplate"   
                  TargetType="Button">
             <Border Background="{TemplateBinding Background}"  
@@ -64,7 +61,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <ContentControl Content="{Binding}" Grid.Row="0" Grid.Column="0" Grid.RowSpan="14" Grid.ColumnSpan="10"/>
+
 
         <Viewbox Grid.Column="3" Grid.ColumnSpan="4" Grid.RowSpan="6">
             <Image HorizontalAlignment="Center" Height="255" VerticalAlignment="Center" Width="281" Source="/logo.png"/>
@@ -92,5 +89,6 @@
                 <Button Content="LOGIN" Template="{StaticResource NoMouseOverButtonTemplate}" Click ="LoginButton_Click" FontSize="100" Background="#FF656565" FontFamily="Bahnschrift SemiLight SemiCondensed" BorderBrush="#FF656565" BorderThickness="0,0,0,0" IsDefault="True"/>
             </Border>
         </Viewbox>
+        <ContentControl Content="{Binding}" Grid.Row="0" Grid.Column="0" Grid.RowSpan="14" Grid.ColumnSpan="10"/>
     </Grid>
 </Window>

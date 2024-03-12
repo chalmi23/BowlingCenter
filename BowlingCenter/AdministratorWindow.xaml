@@ -1,14 +1,14 @@
-﻿<UserControl x:Class="BowlingCenter.Views.AdministratorView"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:viewmodels="clr-namespace:BowlingCenter.ViewModels"
-             xmlns:views="clr-namespace:BowlingCenter.Views"
-             mc:Ignorable="d" 
-             d:DesignHeight="800" d:DesignWidth="1200">
-    
-    <UserControl.Resources>
+﻿<Window x:Class="BowlingCenter.AdministratorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BowlingCenter" xmlns:views="clr-namespace:BowlingCenter.Views"
+        xmlns:viewmodels="clr-namespace:BowlingCenter.ViewModels"
+        mc:Ignorable="d"
+        Title="Administrator Panel" Height="700" Width="1200">
+
+    <Window.Resources>
         <DataTemplate x:Name="BowlingViewTemplate" DataType="{x:Type viewmodels:BowlingViewModel}">
             <views:BowlingView DataContext="{Binding}"/>
         </DataTemplate>
@@ -18,10 +18,21 @@
         <DataTemplate x:Name="DartsViewTemplate" DataType="{x:Type viewmodels:DartsViewModel}">
             <views:DartsView DataContext="{Binding}"/>
         </DataTemplate>
-    </UserControl.Resources>
+    </Window.Resources>
+
 
     <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -34,9 +45,19 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <DockPanel Background="#363636" Grid.Row="0" Grid.Column="0" Grid.RowSpan="5">
+        <DockPanel Background="#363636" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="15" RenderTransformOrigin="0.508,0.49">
             <StackPanel>
                 <Button Content="BOWLING" Click="BowlingButton_Click" FontSize="30" Background="#4a4a4a" FontFamily="Candara Light" FontStyle="Italic"/>
                 <Button Content="DARTS" Click="DartsButton_Click" FontSize="30" Background="#4a4a4a" FontFamily="Candara Light" FontStyle="Italic" FontWeight="Bold"/>
@@ -44,7 +65,7 @@
             </StackPanel>
         </DockPanel>
 
-        <ContentControl Content="{Binding}" Grid.Row="0" Grid.Column="1" Grid.RowSpan="5" Grid.ColumnSpan="4"/>
+        <ContentControl Content="{Binding}" Grid.Row="0" Grid.Column="3" Grid.RowSpan="15" Grid.ColumnSpan="15"/>
 
     </Grid>
-</UserControl>
+</Window>
