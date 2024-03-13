@@ -15,14 +15,21 @@ using System.Windows.Shapes;
 
 namespace BowlingCenter.Views
 {
-    /// <summary>
-    /// Logika interakcji dla klasy BowlingView.xaml
-    /// </summary>
     public partial class BowlingView : UserControl
     {
         public BowlingView()
         {
             InitializeComponent();
+            Loaded += BowlingView_Loaded;
+        }
+        private static void BowlingView_Loaded(object sender, RoutedEventArgs e)
+        {
+            BowlingView bowlingView = (BowlingView)sender;
+            DataGrid reservationsDataGrid = bowlingView.FindName("reservationsDataGrid") as DataGrid;
+            if (reservationsDataGrid != null)
+            {
+                reservationsDataGrid.ItemsSource = ReservationData.InitializeReservationData();
+            }
         }
     }
 }

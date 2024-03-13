@@ -34,5 +34,8 @@
         <Viewbox Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="4">
             <Label Width="Auto" Grid.Column="3" Content="BILLIARDS RESERVATIONS" Grid.ColumnSpan="4" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontStretch="Condensed"/>
         </Viewbox>
+        <Viewbox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="5" VerticalAlignment="Bottom" Margin="10,0,0,0">
+        <Calendar HorizontalAlignment="Left"/>
+        </Viewbox>
     </Grid>
 </UserControl>

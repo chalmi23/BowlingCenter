@@ -68,7 +68,7 @@
         </Viewbox>
         <Viewbox Grid.Column="2" Grid.ColumnSpan="6" Grid.Row="6" Grid.RowSpan="2">
             <Border BorderBrush="#FF656565" BorderThickness="11" CornerRadius="15" Background="#FF797980">
-                <TextBox x:Name="usernameTextBox" HorizontalAlignment="Center" TextWrapping="Wrap" Text="username" VerticalAlignment="Center" Width="300" FontSize="25" FlowDirection="RightToLeft" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Bahnschrift" Background="#FF656565" OpacityMask="Black" SelectionOpacity="0" BorderThickness="0,0,0,0" SelectionBrush="#FF797980" BorderBrush="#FF474747">
+                <TextBox x:Name="usernameTextBox" HorizontalAlignment="Center" TextWrapping="Wrap" Text="admin" VerticalAlignment="Center" Width="300" FontSize="25" FlowDirection="RightToLeft" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Bahnschrift" Background="#FF656565" OpacityMask="Black" SelectionOpacity="0" BorderThickness="0,0,0,0" SelectionBrush="#FF797980" BorderBrush="#FF474747">
                     <TextBox.Foreground>
                         <SolidColorBrush Color="Black" Opacity="0.7"/>
                     </TextBox.Foreground>
@@ -77,7 +77,7 @@
         </Viewbox>
         <Viewbox Grid.Column="2" Grid.ColumnSpan="6" Grid.Row="8" Grid.RowSpan="2">
             <Border BorderBrush="#FF656565" BorderThickness="11" CornerRadius="15" Background="#FF797980">
-                <TextBox x:Name="passwordTextBox" HorizontalAlignment="Center" TextWrapping="Wrap" Text="password" VerticalAlignment="Center" Width="300" FontSize="25" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Bahnschrift" Background="#FF656565" OpacityMask="Black" SelectionOpacity="0" BorderThickness="0,0,0,0" SelectionBrush="#FF797980" BorderBrush="#FF474747">
+                <TextBox x:Name="passwordTextBox" HorizontalAlignment="Center" TextWrapping="Wrap" Text="admin" VerticalAlignment="Center" Width="300" FontSize="25" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Bahnschrift" Background="#FF656565" OpacityMask="Black" SelectionOpacity="0" BorderThickness="0,0,0,0" SelectionBrush="#FF797980" BorderBrush="#FF474747">
                     <TextBox.Foreground>
                         <SolidColorBrush Color="Black" Opacity="0.7"/>
                     </TextBox.Foreground>

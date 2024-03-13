@@ -32,10 +32,20 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+
+
         <Viewbox Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="4">
-            <Label Width="Auto" Grid.Column="3" Content="BOWLING RESERVATIONS" Grid.ColumnSpan="4" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontStretch="Condensed"/>
+            <Label Width="Auto" Grid.Column="3" Content="BOWLING RESERVATIONS" Grid.ColumnSpan="4" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontStretch="Condensed" FontWeight="Bold"/>
+        </Viewbox>
+
+        <Viewbox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="4" VerticalAlignment="Bottom">
+            <Calendar x:Name="reservationCalendar" HorizontalAlignment="Center" FontFamily="Yu Gothic UI Semibold"/>
+        </Viewbox>
+        <Viewbox Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="7" Grid.RowSpan="7" VerticalAlignment="Top">
+            <DataGrid x:Name="reservationsDataGrid" Background="Black" BorderBrush="Black" Foreground="Black" FontFamily="Century Gothic" FontSize="20"/>
         </Viewbox>
     </Grid>
+
 
 
 </UserControl>
