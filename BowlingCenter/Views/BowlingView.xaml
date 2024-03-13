@@ -42,7 +42,21 @@
             <Calendar x:Name="reservationCalendar" HorizontalAlignment="Center" FontFamily="Yu Gothic UI Semibold"/>
         </Viewbox>
         <Viewbox Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="7" Grid.RowSpan="7" VerticalAlignment="Top">
-            <DataGrid x:Name="reservationsDataGrid" Background="Black" BorderBrush="Black" Foreground="Black" FontFamily="Century Gothic" FontSize="20"/>
+            <DataGrid x:Name="reservationsDataGrid" Background="Black" BorderBrush="Black" Foreground="Black" FontFamily="Century Gothic" FontSize="20" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="date" Binding="{Binding Time}"/>
+                    <DataGridTextColumn Header="first name" Binding="{Binding FirstName}"/>
+                    <DataGridTextColumn Header="second name" Binding="{Binding SecondName}"/>
+                    <DataGridTextColumn Header="phone number" Binding="{Binding PhoneNumber}"/>
+                    <DataGridTextColumn Header="id" Binding="{Binding ReservationId}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Viewbox>
+        <Viewbox Grid.Row="9" Grid.Column="7" Grid.ColumnSpan="3" Grid.RowSpan="1" Margin="0,0,20,20">
+            <Button x:Name="addReservationButton" Content="Add reservation" Background="#FF5C794D" Width="100" FontFamily="Bahnschrift SemiLight SemiCondensed"/>
+        </Viewbox>
+        <Viewbox Grid.Row="9" Grid.Column="3" Grid.ColumnSpan="3" Grid.RowSpan="1" Margin="20,0,0,20">
+            <Button x:Name="deleteReservationButton" Content="Delete reservation" Width="100" Background="#FFA40A0A" FontFamily="Bahnschrift SemiLight SemiCondensed"/>
         </Viewbox>
     </Grid>
 

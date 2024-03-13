@@ -29,11 +29,11 @@ namespace BowlingCenter
             {
                 Reservations.Add(new ReservationData
                 {
-                    ReservationId = 0, 
                     Time = new DateTime(1, 1, 1, hour, 0, 0), 
                     FirstName = "",
                     LastName = "",
-                    PhoneNumber = 0 
+                    PhoneNumber = 0,
+                    ReservationId = 0
                 }) ; 
             }
 
