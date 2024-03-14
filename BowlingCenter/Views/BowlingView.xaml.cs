@@ -31,5 +31,10 @@ namespace BowlingCenter.Views
                 reservationsDataGrid.ItemsSource = ReservationData.InitializeReservationData();
             }
         }
+        private void addNewBowlingReservation(object sender, RoutedEventArgs e)
+        {
+            DateTime time = new DateTime(2024, 03, 14, 10, 0, 0);
+            ReservationData.addNewReservation(1, time, "Michal", "Nowak", 1234562137, 1, 1);
+        }
     }
 }
