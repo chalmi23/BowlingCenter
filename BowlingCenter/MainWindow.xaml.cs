@@ -12,7 +12,7 @@ namespace BowlingCenter
         {
             InitializeComponent();
         }
-        string connectionString = ConfigurationManager.AppSettings["ConnectionString"];
+        readonly string connectionString = ConfigurationManager.AppSettings["ConnectionString"] ;
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
