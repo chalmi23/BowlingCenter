@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:BowlingCenter" xmlns:views="clr-namespace:BowlingCenter.Views"
         xmlns:viewmodels="clr-namespace:BowlingCenter.ViewModels"
         mc:Ignorable="d"
-        Title="Administrator Panel" Height="700" Width="1500">
+        Title="Administrator Panel" Height="700" Width="1400">
 
     <Window.Resources>
         <DataTemplate x:Name="BowlingViewTemplate" DataType="{x:Type viewmodels:BowlingViewModel}">

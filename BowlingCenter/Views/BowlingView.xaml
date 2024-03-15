@@ -19,8 +19,12 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
@@ -34,14 +38,14 @@
         </Grid.RowDefinitions>
 
 
-        <Viewbox Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="4">
+        <Viewbox Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="4">
             <Label Width="Auto" Grid.Column="3" Content="BOWLING RESERVATIONS" Grid.ColumnSpan="4" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontStretch="Condensed" FontWeight="Bold"/>
         </Viewbox>
 
         <Viewbox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="4" VerticalAlignment="Bottom">
-            <Calendar x:Name="reservationCalendar" HorizontalAlignment="Center" FontFamily="Yu Gothic UI Semibold"/>
+            <Calendar x:Name="reservationCalendar" HorizontalAlignment="Center" FontFamily="Yu Gothic UI Semibold" SelectedDatesChanged="changeDataByCalendar"/>
         </Viewbox>
-        <Viewbox Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="7" Grid.RowSpan="7" VerticalAlignment="Top">
+        <Viewbox Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="7" Grid.RowSpan="7" VerticalAlignment="Top" HorizontalAlignment="Right">
             <DataGrid x:Name="reservationsDataGrid" Background="Black" BorderBrush="Black" Foreground="Black" FontFamily="Century Gothic" FontSize="20" AutoGenerateColumns="False">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="date" Binding="{Binding Time}"/>
@@ -49,14 +53,21 @@
                     <DataGridTextColumn Header="second name" Binding="{Binding SecondName}"/>
                     <DataGridTextColumn Header="phone number" Binding="{Binding PhoneNumber}"/>
                     <DataGridTextColumn Header="id" Binding="{Binding ReservationId}"/>
+                    <DataGridTextColumn Header="userid" Binding="{Binding UserId}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Viewbox>
-        <Viewbox Grid.Row="9" Grid.Column="7" Grid.ColumnSpan="3" Grid.RowSpan="1" Margin="0,0,20,20">
+        <Viewbox Grid.Row="10" Grid.Column="8" Grid.ColumnSpan="3" Grid.RowSpan="1" Margin="0,0,20,20">
             <Button x:Name="addReservationButton" Content="Add reservation" Background="#FF5C794D" Width="100" FontFamily="Bahnschrift SemiLight SemiCondensed" Click="AddNewBowlingReservation"/>
         </Viewbox>
-        <Viewbox Grid.Row="9" Grid.Column="3" Grid.ColumnSpan="3" Grid.RowSpan="1" Margin="20,0,0,20">
-            <Button x:Name="deleteReservationButton" Content="Delete reservation" Width="100" Background="#FFA40A0A" FontFamily="Bahnschrift SemiLight SemiCondensed" Click="DeleteBowlingReservation"/>
+        <Viewbox Grid.Row="10" Grid.Column="4" Grid.ColumnSpan="3" Grid.RowSpan="1" Margin="20,0,0,20">
+            <Button x:Name="deleteReservationButton" Content="Delete reservation" Width="100" Background="#FFA40A0A" FontFamily="Bahnschrift SemiLight SemiCondensed"/>
+        </Viewbox>
+        <Viewbox Grid.Row="1" Grid.Column="9" Grid.ColumnSpan="2">
+            <ComboBox x:Name="comboBoxBowlingAlleys" HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" SelectionChanged="comboBoxBowlingAlleys_SelectionChanged"/>
+        </Viewbox>
+        <Viewbox Grid.Column="9" Grid.ColumnSpan="2" VerticalAlignment="Bottom">
+            <Label Content="choose alley"/>
         </Viewbox>
     </Grid>
 

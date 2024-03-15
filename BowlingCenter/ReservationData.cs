@@ -17,14 +17,18 @@ namespace BowlingCenter
         private string _firstName;
         private string _secondName;
         private int _phoneNumber;
+        private int _userId;
+        private int _gameStation;
 
         public int ReservationId { get => _reservationId; set => _reservationId = value; }
         public DateTime Time { get => _time; set => _time = value; }
         public string FirstName { get => _firstName; set => _firstName = value; }
         public string SecondName { get => _secondName; set => _secondName = value; }
         public int PhoneNumber { get => _phoneNumber; set => _phoneNumber = value; }
+        public int UserId { get => _userId; set => _userId = value; }
+        public int GameStation { get => _gameStation; set => _gameStation = value; }
 
-        public static List<ReservationData> InitializeReservationData()
+        public static List<ReservationData> InitializeReservationData(DateTime date)
         {
             List<ReservationData> Reservations = new List<ReservationData>();
 
@@ -32,11 +36,13 @@ namespace BowlingCenter
             {
                 Reservations.Add(new ReservationData
                 {
-                    Time = new DateTime(2024, 03, 14, hour, 0, 0), 
+                    Time = new DateTime(date.Year, date.Month, date.Day, hour, 0, 0), 
                     FirstName = "",
                     SecondName = "",
                     PhoneNumber = 0,
-                    ReservationId = 0
+                    ReservationId = 0,
+                    UserId = 0,
+                    GameStation = 0,
                 }) ; 
             }
             return Reservations;
@@ -68,7 +74,7 @@ namespace BowlingCenter
         }
 
 
-        public static List<ReservationData> GetReservations()
+        public static List<ReservationData> GetReservations(DateTime date, int gameStation)
         {
             List<ReservationData> reservations = new List<ReservationData>();
 
@@ -77,9 +83,11 @@ namespace BowlingCenter
             {
                 connection.Open();
 
-                string query = "SELECT * FROM reservations";
+                string query = "SELECT * FROM reservations WHERE CAST(date AS DATE) = @date AND game_station = @game_station";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
+                    command.Parameters.AddWithValue("@date", date);
+                    command.Parameters.AddWithValue("@game_station", gameStation);
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
@@ -90,7 +98,9 @@ namespace BowlingCenter
                                 FirstName = reader.GetString(reader.GetOrdinal("first_name")),
                                 SecondName = reader.GetString(reader.GetOrdinal("second_name")),
                                 PhoneNumber = reader.GetInt32(reader.GetOrdinal("phone_number")),
-                                ReservationId = reader.GetInt32(reader.GetOrdinal("reservation_id"))
+                                ReservationId = reader.GetInt32(reader.GetOrdinal("reservation_id")),
+                                UserId = reader.GetInt32(reader.GetOrdinal("user_id")),
+                                GameStation = reader.GetInt32(reader.GetOrdinal("game_station"))
                             });
                         }
                     }
