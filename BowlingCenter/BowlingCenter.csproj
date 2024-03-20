@@ -91,6 +91,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dataBaseModelDataSet.xsd</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="ReservationData.cs" />
     <Compile Include="ViewModels\BilliardsViewModel.cs" />
@@ -165,14 +166,17 @@
     <None Include="BowlingCenter_TemporaryKey.pfx" />
     <None Include="dataBaseModelDataSet.xsc">
       <DependentUpon>dataBaseModelDataSet.xsd</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="dataBaseModelDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>dataBaseModelDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="dataBaseModelDataSet.xss">
       <DependentUpon>dataBaseModelDataSet.xsd</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -186,7 +190,7 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="logo.png" />
+    <Resource Include="pics\logo.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="dataBaseModel.mdf">
@@ -196,6 +200,11 @@
       <DependentUpon>dataBaseModel.mdf</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="pics\minimize.png" />
+    <Resource Include="pics\closepng.png" />
+    <Resource Include="pics\bg.jpg" />
+    <Resource Include="pics\bowlingpic.png" />
+    <Resource Include="pics\bowling.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

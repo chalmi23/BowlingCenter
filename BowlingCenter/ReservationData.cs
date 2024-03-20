@@ -17,7 +17,7 @@ namespace BowlingCenter
         private string _firstName;
         private string _secondName;
         private int _phoneNumber;
-        private int _userId;
+        private string _userName;
         private int _gameStation;
 
         public int ReservationId { get => _reservationId; set => _reservationId = value; }
@@ -25,7 +25,7 @@ namespace BowlingCenter
         public string FirstName { get => _firstName; set => _firstName = value; }
         public string SecondName { get => _secondName; set => _secondName = value; }
         public int PhoneNumber { get => _phoneNumber; set => _phoneNumber = value; }
-        public int UserId { get => _userId; set => _userId = value; }
+        public string UserName { get => _userName; set => _userName = value; }
         public int GameStation { get => _gameStation; set => _gameStation = value; }
 
         public static List<ReservationData> InitializeReservationData(DateTime date)
@@ -41,7 +41,7 @@ namespace BowlingCenter
                     SecondName = "",
                     PhoneNumber = 0,
                     ReservationId = 0,
-                    UserId = 0,
+                    _userName = "",
                     GameStation = 0,
                 }) ; 
             }
@@ -83,7 +83,7 @@ namespace BowlingCenter
             {
                 connection.Open();
 
-                string query = "SELECT * FROM reservations WHERE CAST(date AS DATE) = @date AND game_station = @game_station";
+                string query = "SELECT reservations.date, reservations.first_name, reservations.second_name, reservations.phone_number, reservations.reservation_id, reservations.game_station, users.username FROM reservations  INNER JOIN users ON users.user_id = reservations.user_id WHERE CAST(date AS DATE) = @date AND game_station = @game_station";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@date", date);
@@ -99,7 +99,7 @@ namespace BowlingCenter
                                 SecondName = reader.GetString(reader.GetOrdinal("second_name")),
                                 PhoneNumber = reader.GetInt32(reader.GetOrdinal("phone_number")),
                                 ReservationId = reader.GetInt32(reader.GetOrdinal("reservation_id")),
-                                UserId = reader.GetInt32(reader.GetOrdinal("user_id")),
+                                UserName = reader.GetString(reader.GetOrdinal("username")),
                                 GameStation = reader.GetInt32(reader.GetOrdinal("game_station"))
                             });
                         }
@@ -110,5 +110,23 @@ namespace BowlingCenter
             return reservations;
         }
 
+        public static void deleteReservation(int reservationId)
+        {
+            string connectionString = ConfigurationManager.AppSettings["ConnectionString"];
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = "DELETE FROM reservations WHERE reservation_id = @reservation_id";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@reservation_id", reservationId);
+
+                    command.ExecuteNonQuery();
+                }
+                MessageBox.Show("Reservation deleted succesfully!", "AdminTool", MessageBoxButtons.OK);
+            }
+        }
     }
 }

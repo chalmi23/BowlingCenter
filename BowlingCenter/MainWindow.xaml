@@ -64,7 +64,7 @@
 
 
         <Viewbox Grid.Column="3" Grid.ColumnSpan="4" Grid.RowSpan="6">
-            <Image HorizontalAlignment="Center" Height="255" VerticalAlignment="Center" Width="281" Source="/logo.png"/>
+            <Image HorizontalAlignment="Center" Height="255" VerticalAlignment="Center" Width="281" Source="/pics/logo.png"/>
         </Viewbox>
         <Viewbox Grid.Column="2" Grid.ColumnSpan="6" Grid.Row="6" Grid.RowSpan="2">
             <Border BorderBrush="#FF656565" BorderThickness="11" CornerRadius="15" Background="#FF797980">

@@ -37,5 +37,6 @@
         <Viewbox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="5" VerticalAlignment="Bottom" Margin="10,0,0,0">
         <Calendar HorizontalAlignment="Left"/>
         </Viewbox>
+        <TextBox Grid.Column="5" Grid.ColumnSpan="3"  HorizontalAlignment="Left" Margin="70,10,0,0" Grid.Row="3" TextWrapping="Wrap" Text="500" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
     </Grid>
 </UserControl>

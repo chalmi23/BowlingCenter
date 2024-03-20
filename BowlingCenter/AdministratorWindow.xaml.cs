@@ -29,5 +29,28 @@ namespace BowlingCenter
            else if(sender.ToString() == "System.Windows.Controls.Button: DARTS") DataContext = new DartsViewModel();
            else if(sender.ToString() == "System.Windows.Controls.Button: BILLIARDS") DataContext = new BilliardsViewModel();
         }
+
+        private void ContentControl_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                this.DragMove();
+            }
+        }
+
+        private void MinimizeWindowCommand(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Image_MouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
+        {
+            SystemCommands.MinimizeWindow(this);
+        }
     }
 }
