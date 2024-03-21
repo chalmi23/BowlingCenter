@@ -20,6 +20,9 @@
         <DataTemplate x:Name="DartsViewTemplate" DataType="{x:Type viewmodels:DartsViewModel}">
             <views:DartsView DataContext="{Binding}"/>
         </DataTemplate>
+        <DataTemplate x:Name="SettingsViewTemplate" DataType="{x:Type viewmodels:SettingsViewModel}">
+            <views:SettingsView DataContext="{Binding}"/>
+        </DataTemplate>
     </Window.Resources>
 
 

@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 
 namespace BowlingCenter.Views
@@ -81,15 +79,6 @@ namespace BowlingCenter.Views
                 }
             }
         }
-        private void FillComboBoxWithTracks()
-        {
-            for (int i = 1; i <= 3; i++)
-            {
-                string trackName = $"alley: {i}";
-                comboBoxBowlingAlleys.Items.Add(trackName);
-            }
-            comboBoxBowlingAlleys.SelectedIndex = 0;
-        }
         private void changeDataByCalendar(object sender, SelectionChangedEventArgs e)
         {
             LoadDataGrid(sender, e);
@@ -111,6 +100,15 @@ namespace BowlingCenter.Views
                 ReservationData.deleteReservation(((BowlingCenter.ReservationData)selectedReservation).ReservationId);
                 LoadDataGrid(sender, e);
             }
+        }
+        private void FillComboBoxWithTracks()
+        {
+            for (int i = 1; i <= 3; i++)
+            {
+                string trackName = $"alley: {i}";
+                comboBoxBowlingAlleys.Items.Add(trackName);
+            }
+            comboBoxBowlingAlleys.SelectedIndex = 0;
         }
     }
 }

@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:BowlingCenter.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="#4a4a4a">
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -31,12 +31,5 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Viewbox Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="4">
-            <Label Width="Auto" Grid.Column="3" Content="BILLIARDS RESERVATIONS" Grid.ColumnSpan="4" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontStretch="Condensed"/>
-        </Viewbox>
-        <Viewbox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="5" VerticalAlignment="Bottom" Margin="10,0,0,0">
-        <Calendar HorizontalAlignment="Left"/>
-        </Viewbox>
-        <TextBox Grid.Column="5" Grid.ColumnSpan="3"  HorizontalAlignment="Left" Margin="70,10,0,0" Grid.Row="3" TextWrapping="Wrap" Text="500" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
     </Grid>
 </UserControl>

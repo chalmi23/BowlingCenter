@@ -28,6 +28,7 @@ namespace BowlingCenter
            if(sender.ToString() == "System.Windows.Controls.Button: BOWLING") DataContext = new BowlingViewModel();
            else if(sender.ToString() == "System.Windows.Controls.Button: DARTS") DataContext = new DartsViewModel();
            else if(sender.ToString() == "System.Windows.Controls.Button: BILLIARDS") DataContext = new BilliardsViewModel();
+           else if(sender.ToString() == "System.Windows.Controls.Button: SETTINGS") DataContext = new SettingsViewModel();
         }
 
         private void ContentControl_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
