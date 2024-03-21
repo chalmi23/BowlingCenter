@@ -52,5 +52,13 @@ namespace BowlingCenter
         {
             SystemCommands.MinimizeWindow(this);
         }
+
+        private void DockPanel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                this.DragMove();
+            }
+        }
     }
 }

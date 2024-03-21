@@ -28,5 +28,15 @@ namespace BowlingCenter.Views
         {
             Close();
         }
+
+        private void closeAddingWindow(object sender, MouseButtonEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void minimizeAddingWindow(object sender, MouseButtonEventArgs e)
+        {
+            SystemCommands.MinimizeWindow(this);
+        }
     }
 }

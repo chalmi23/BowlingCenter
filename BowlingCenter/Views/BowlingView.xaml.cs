@@ -48,25 +48,38 @@ namespace BowlingCenter.Views
         }
         private void AddNewBowlingReservation(object sender, RoutedEventArgs e)
         {
-            var reservationWindow = new ReservationWindow();
-            reservationWindow.ShowDialog();
-
             var selectedReservation = reservationsDataGrid.SelectedItem;
-            DateTime time = ((BowlingCenter.ReservationData)selectedReservation).Time;
-
-            ReservationData.AddNewReservation(1, time, reservationWindow.firstNameTextBox.Text, reservationWindow.secondNameTextBox.Text, int.Parse(reservationWindow.phoneNumberTextBox.Text), 1, comboBoxBowlingAlleys.SelectedIndex + 1);
- 
-            foreach (var reservation in reservations)
+            if(selectedReservation == null)
             {
-                if (reservation.Time.ToString() == time.ToString())
+                MessageBox.Show("First select the right date!", "AdminTool");
+            }
+            else
+            {
+                try
                 {
-                    reservation.FirstName = reservationWindow.firstNameTextBox.Text;
-                    reservation.SecondName = reservationWindow.secondNameTextBox.Text;
-                    reservation.PhoneNumber = int.Parse(reservationWindow.phoneNumberTextBox.Text);
-                    break;
+                    var reservationWindow = new ReservationWindow();
+                    reservationWindow.ShowDialog();
+                    DateTime time = ((BowlingCenter.ReservationData)selectedReservation).Time;
+
+                    ReservationData.AddNewReservation(1, time, reservationWindow.firstNameTextBox.Text, reservationWindow.secondNameTextBox.Text, int.Parse(reservationWindow.phoneNumberTextBox.Text), 1, comboBoxBowlingAlleys.SelectedIndex + 1);
+
+                    foreach (var reservation in reservations)
+                    {
+                        if (reservation.Time.ToString() == time.ToString())
+                        {
+                            reservation.FirstName = reservationWindow.firstNameTextBox.Text;
+                            reservation.SecondName = reservationWindow.secondNameTextBox.Text;
+                            reservation.PhoneNumber = int.Parse(reservationWindow.phoneNumberTextBox.Text);
+                            break;
+                        }
+                    }
+                    LoadDataGrid(sender, e);
+                }
+                catch(System.FormatException)
+                {
+                    MessageBox.Show("Enter valid data!", "AdminTool");
                 }
             }
-            LoadDataGrid(sender, e);
         }
         private void FillComboBoxWithTracks()
         {
@@ -89,8 +102,15 @@ namespace BowlingCenter.Views
         private void deleteReservationButton_Click(object sender, RoutedEventArgs e)
         {
             var selectedReservation = reservationsDataGrid.SelectedItem;
-            ReservationData.deleteReservation(((BowlingCenter.ReservationData)selectedReservation).ReservationId);
-            LoadDataGrid(sender, e);
+            if(((BowlingCenter.ReservationData)selectedReservation).ReservationId == 0)
+            {
+                MessageBox.Show("Select the right reservation!", "AdminTool");
+            }
+            else
+            {
+                ReservationData.deleteReservation(((BowlingCenter.ReservationData)selectedReservation).ReservationId);
+                LoadDataGrid(sender, e);
+            }
         }
     }
 }

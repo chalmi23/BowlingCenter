@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BowlingCenter.Views"
         mc:Ignorable="d"
-        Title="ReservationWindow" Height="500" Width="400" Background="#4a4a4a">
+        Title="ReservationWindow" WindowStyle="None" Height="500" Width="400" Background="#FF0F0367">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -32,19 +32,32 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Viewbox Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="6">
-            <Label Content="FIRST NAME" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24" FontFamily="Bahnschrift SemiLight" FontWeight="Bold"/>
+            <Label Content="FIRST NAME" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24" FontFamily="Tw Cen MT Condensed Extra Bold" FontWeight="Bold" Foreground="#FF9787C3"/>
         </Viewbox>
         <Viewbox Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="6">
-            <Label Content="SECOND NAME" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24" FontFamily="Bahnschrift SemiLight" FontWeight="Bold"/>
+            <Label Content="SECOND NAME" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24" FontFamily="Tw Cen MT Condensed Extra Bold" FontWeight="Bold" Foreground="#FF9787C3"/>
         </Viewbox>
         <Viewbox Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="6">
-            <Label Content="PHONE NUMBER" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24" FontFamily="Bahnschrift SemiLight" FontWeight="Bold"/>
+            <Label Content="PHONE NUMBER" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24" FontFamily="Tw Cen MT Condensed Extra Bold" FontWeight="Bold" Foreground="#FF9787C3"/>
         </Viewbox>
-        <TextBox x:Name="firstNameTextBox" Grid.Column="2" Grid.ColumnSpan="6" Grid.Row="2" TextWrapping="Wrap" Text="" />
-        <TextBox x:Name="secondNameTextBox" Grid.Column="2" Grid.ColumnSpan="6" Grid.Row="4" TextWrapping="Wrap" Text="" />
-        <TextBox x:Name="phoneNumberTextBox" Grid.Column="2" Grid.ColumnSpan="6" Grid.Row="6" TextWrapping="Wrap" Text="" />
+        <Viewbox Grid.Column="2" Grid.ColumnSpan="6" Grid.Row="2">
+            <TextBox x:Name="firstNameTextBox" Background="#FF9787C3" Foreground="#FF0F0367" FontFamily="Tw Cen MT Condensed Extra Bold" Width="75" BorderBrush="Black"/>
+        </Viewbox>
+        <Viewbox Grid.Column="2" Grid.ColumnSpan="6" Grid.Row="4">
+            <TextBox x:Name="secondNameTextBox" Background="#FF9787C3" Foreground="#FF0F0367" FontFamily="Tw Cen MT Condensed Extra Bold" Width="75" BorderBrush="Black"/>
+        </Viewbox>
+        <Viewbox Grid.Column="2" Grid.ColumnSpan="6" Grid.Row="6">
+            <TextBox x:Name="phoneNumberTextBox" Background="#FF9787C3" Foreground="#FF0F0367" FontFamily="Tw Cen MT Condensed Extra Bold" Width="75" BorderBrush="Black" />
+        </Viewbox>
         <Viewbox Grid.Column="3" Grid.ColumnSpan="4" Grid.Row="8">
-            <Button  Content="reserve" Click="Button_Click"/>
+            <Button Content="reserve" Click="Button_Click" FontFamily="Tw Cen MT Condensed Extra Bold" Background="#FF9787C3" Foreground="#FF0F0367"  Height="33" BorderThickness="2" Width="122" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="0,0,0,0" BorderBrush="Black"/>
         </Viewbox>
+        <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="10">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                <Image Source="/pics/minimize.png" MouseLeftButtonDown="minimizeAddingWindow" Height="35" Width="35"/>
+                <Image Source="/pics/closepng.png" MouseLeftButtonDown="closeAddingWindow" Height="35" Width="35"/>
+            </StackPanel>
+        </DockPanel>
+
     </Grid>
 </Window>
