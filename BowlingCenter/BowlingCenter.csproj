@@ -208,6 +208,8 @@
       <DependentUpon>dataBaseModel.mdf</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="pics\dartsBG.jpg" />
+    <Resource Include="pics\billiardsBG.jpg" />
     <Resource Include="pics\settingsBG.jpg" />
     <Resource Include="pics\minimize.png" />
     <Resource Include="pics\closepng.png" />

@@ -6,7 +6,10 @@
              xmlns:local="clr-namespace:BowlingCenter.Views"
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="1200">
-    <Grid Background="#4a4a4a">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/pics/dartsBG.jpg"/>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>

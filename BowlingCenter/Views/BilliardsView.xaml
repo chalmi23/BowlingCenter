@@ -6,8 +6,40 @@
              xmlns:local="clr-namespace:BowlingCenter.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ControlTemplate x:Key="NoMouseOverButtonTemplate"   
+                 TargetType="Button">
+            <Border Background="{TemplateBinding Background}"  
+          BorderBrush="{TemplateBinding BorderBrush}"  
+          BorderThickness="{TemplateBinding BorderThickness}">
+                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"  
+                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+            </Border>
+
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsEnabled"  
+             Value="False">
+                    <Setter Property="Background"  
+              Value="{x:Static SystemColors.ControlLightBrush}" />
+                    <Setter Property="Foreground"  
+              Value="{x:Static SystemColors.GrayTextBrush}" />
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+        <Style TargetType="ComboBoxItem">
+            <Setter Property="Background" Value="#FF9787C3"/>
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="Background" Value="#FF9787C3"/>
+        </Style>
+    </UserControl.Resources>
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/pics/billiardsBG.jpg"/>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -30,6 +62,66 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
+
+
+        <Viewbox Grid.Row="0" Grid.RowSpan="2" Grid.Column="2" Grid.ColumnSpan="8">
+            <Label Width="Auto" Grid.Column="3" Content="DARTS RESERVATIONS" Grid.ColumnSpan="4" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontStretch="Condensed" FontSize="16" FontFamily="Eras ITC" Background="{x:Null}" Foreground="White" FontWeight="Bold"/>
+        </Viewbox>
+        <Viewbox Grid.Row="0" Grid.RowSpan="2" Grid.Column="2" Grid.ColumnSpan="8">
+            <Label Width="Auto" Grid.Column="3" Content="DARTS RESERVATIONS" Grid.ColumnSpan="4" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontStretch="Condensed" FontSize="16" FontFamily="Eras ITC" Background="{x:Null}" Foreground="Black" FontWeight="Bold"/>
+        </Viewbox>
+        <Viewbox Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4" Grid.RowSpan="5" VerticalAlignment="Bottom">
+            <Calendar x:Name="reservationCalendar" Language="English" HorizontalAlignment="Center" FontFamily="Yu Gothic UI Semibold" SelectedDatesChanged="changeDataByCalendar" Background="#FF9787C3" BorderBrush="#FF0F0367" Foreground="{x:Null}" BorderThickness="5,5,5,5"/>
+        </Viewbox>
+        <Viewbox Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="7" Grid.RowSpan="7" HorizontalAlignment="Right" VerticalAlignment="Top">
+            <DataGrid x:Name="reservationsDataGrid" BorderThickness="3" CanUserResizeColumns="False" CanUserResizeRows="False" HeadersVisibility="Column" GridLinesVisibility="All" SelectionMode="Single" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="35" AutoGenerateColumns="False" Background="Black" Foreground="#FFC4C1DA" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="Black">
+                <DataGrid.Resources>
+                    <Style TargetType="DataGridCell">
+                        <Setter Property="Background" Value="#FF9787C3"/>
+                    </Style>
+                    <Style TargetType="DataGridColumnHeader">
+                        <Setter Property="Background" Value="#FF0F0367"/>
+                        <Setter Property="Margin" Value="0,0,7,0"/>
+                    </Style>
+                    <Style TargetType="Grid">
+                        <Setter Property="Background" Value="Black"/>
+                    </Style>
+                </DataGrid.Resources>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="date" Binding="{Binding Time}"/>
+                    <DataGridTextColumn Header="first name" Binding="{Binding FirstName}"/>
+                    <DataGridTextColumn Header="second name" Binding="{Binding SecondName}"/>
+                    <DataGridTextColumn Header="phone number" Binding="{Binding PhoneNumber}"/>
+                    <DataGridTextColumn Header="id" Binding="{Binding ReservationId}"/>
+                    <DataGridTextColumn Header="username" Binding="{Binding UserName}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Viewbox>
+        <Viewbox Grid.Row="11" Grid.Column="4" Grid.ColumnSpan="3" Grid.RowSpan="2" Margin="60,0,0,20">
+            <Border BorderBrush="Black" BorderThickness="12" CornerRadius="66">
+                <Border BorderBrush="#FF385629" BorderThickness="30" CornerRadius="40" Background="White" Width="400" Height="170">
+                    <Button x:Name="addReservationButton" Template="{StaticResource NoMouseOverButtonTemplate}" Content="Add reservation" Background="#FF385629" Click="AddNewBilliardsReservation" Margin="-20,-6,-20,-5" FontSize="44" BorderBrush="#FF385629" FontFamily="Tw Cen MT Condensed Extra Bold" Foreground="Black"/>
+                </Border>
+            </Border>
+        </Viewbox>
+
+        <Viewbox Grid.Row="11" Grid.Column="8" Grid.ColumnSpan="3" Grid.RowSpan="2" Margin="60,0,0,20">
+            <Border BorderBrush="Black" BorderThickness="12" CornerRadius="66">
+                <Border BorderBrush="#FFA40A0A" BorderThickness="30" CornerRadius="40" Background="#FFA40A0A" Width="400" Height="170">
+                    <Button x:Name="deleteReservationButton" Template="{StaticResource NoMouseOverButtonTemplate}" Content="Delete reservation" Background="#FFA40A0A" FontFamily="Tw Cen MT Condensed Extra Bold" Click="deleteReservationButton_Click" BorderBrush="#FFA40A0A" FontSize="44" Margin="-23,-4,-24,-3"/>
+                </Border>
+            </Border>
+        </Viewbox>
+        <Viewbox Grid.Row="2" Grid.Column="10" Grid.ColumnSpan="1">
+            <Border BorderBrush="#FF0F0367" BorderThickness="5" Background="#FFA40A0A">
+                <ComboBox x:Name="comboBoxBowlingAlleys" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" SelectionChanged="comboBoxBowlingAlleys_SelectionChanged" Height="54" FontSize="25" VerticalContentAlignment="Center" FontFamily="Tw Cen MT Condensed Extra Bold" Foreground="Black"/>
+            </Border>
+        </Viewbox>
+
+        <Viewbox Grid.Row="2" Grid.Column="8" Grid.ColumnSpan="2" VerticalAlignment="Bottom"/>
     </Grid>
 </UserControl>
