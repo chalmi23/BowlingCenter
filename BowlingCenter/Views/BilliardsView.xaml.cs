@@ -9,19 +9,19 @@ namespace BowlingCenter.Views
     public partial class BilliardsView : UserControl
     {
         private List<ReservationData> reservations = new List<ReservationData>();
-        private List<ReservationData> reservationsFromDatabase = ReservationData.GetReservations(DateTime.UtcNow, 1);
+        private List<ReservationData> reservationsFromDatabase = ReservationData.GetReservations(DateTime.UtcNow,2, 1);
         public BilliardsView()
         {
             InitializeComponent();
             reservationCalendar.SelectedDate = DateTime.Now.Date;
             Loaded += LoadDataGrid;
-            FillComboBoxWithTracks();
+            FillComboBox();
             reservationsDataGrid.Background = Brushes.LightBlue;
         }
         private void LoadDataGrid(object sender, RoutedEventArgs e)
         {
             reservations = ReservationData.InitializeReservationData(reservationCalendar.SelectedDate.Value);
-            reservationsFromDatabase = ReservationData.GetReservations(reservationCalendar.SelectedDate.Value, comboBoxBowlingAlleys.SelectedIndex + 1);
+            reservationsFromDatabase = ReservationData.GetReservations(reservationCalendar.SelectedDate.Value, 2, comboBoxBowlingAlleys.SelectedIndex + 1);
             foreach (var reservationfromdatabase in reservationsFromDatabase)
             {
                 foreach (var reservation in reservations)
@@ -55,7 +55,7 @@ namespace BowlingCenter.Views
                     reservationWindow.ShowDialog();
                     DateTime time = ((BowlingCenter.ReservationData)selectedReservation).Time;
 
-                    ReservationData.AddNewReservation(1, time, reservationWindow.firstNameTextBox.Text, reservationWindow.secondNameTextBox.Text, int.Parse(reservationWindow.phoneNumberTextBox.Text), 1, comboBoxBowlingAlleys.SelectedIndex + 1);
+                    ReservationData.AddNewReservation(1, time, reservationWindow.firstNameTextBox.Text, reservationWindow.secondNameTextBox.Text, int.Parse(reservationWindow.phoneNumberTextBox.Text), 2, comboBoxBowlingAlleys.SelectedIndex + 1);
 
                     foreach (var reservation in reservations)
                     {
@@ -96,11 +96,11 @@ namespace BowlingCenter.Views
         {
             LoadDataGrid(sender, e);
         }
-        private void FillComboBoxWithTracks()
+        private void FillComboBox()
         {
             for (int i = 1; i <= 3; i++)
             {
-                string trackName = $"alley: {i}";
+                string trackName = $"pool table: {i}";
                 comboBoxBowlingAlleys.Items.Add(trackName);
             }
             comboBoxBowlingAlleys.SelectedIndex = 0;

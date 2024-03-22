@@ -11,7 +11,7 @@ namespace BowlingCenter.Views
     {
 
         private List<ReservationData> reservations = new List<ReservationData>();
-        private List<ReservationData> reservationsFromDatabase = ReservationData.GetReservations(DateTime.UtcNow, 1);
+        private List<ReservationData> reservationsFromDatabase = ReservationData.GetReservations(DateTime.UtcNow, 1, 1);
 
         public BowlingView()
         {
@@ -25,7 +25,7 @@ namespace BowlingCenter.Views
         private void LoadDataGrid(object sender, RoutedEventArgs e)
         {
             reservations = ReservationData.InitializeReservationData(reservationCalendar.SelectedDate.Value);
-            reservationsFromDatabase = ReservationData.GetReservations(reservationCalendar.SelectedDate.Value, comboBoxBowlingAlleys.SelectedIndex + 1);
+            reservationsFromDatabase = ReservationData.GetReservations(reservationCalendar.SelectedDate.Value, 1, comboBoxBowlingAlleys.SelectedIndex + 1);
             foreach (var reservationfromdatabase in reservationsFromDatabase)
             {
                 foreach (var reservation in reservations)

@@ -74,7 +74,7 @@ namespace BowlingCenter
         }
 
 
-        public static List<ReservationData> GetReservations(DateTime date, int gameStation)
+        public static List<ReservationData> GetReservations(DateTime date, int typeId, int gameStation)
         {
             List<ReservationData> reservations = new List<ReservationData>();
 
@@ -83,10 +83,11 @@ namespace BowlingCenter
             {
                 connection.Open();
 
-                string query = "SELECT reservations.date, reservations.first_name, reservations.second_name, reservations.phone_number, reservations.reservation_id, reservations.game_station, users.username FROM reservations  INNER JOIN users ON users.user_id = reservations.user_id WHERE CAST(date AS DATE) = @date AND game_station = @game_station";
+                string query = "SELECT reservations.date, reservations.first_name, reservations.second_name, reservations.phone_number, reservations.reservation_id, reservations.game_station, users.username FROM reservations  INNER JOIN users ON users.user_id = reservations.user_id WHERE CAST(date AS DATE) = @date AND game_station = @game_station AND type_id = @type_id";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@date", date);
+                    command.Parameters.AddWithValue("@type_id", typeId);
                     command.Parameters.AddWithValue("@game_station", gameStation);
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
