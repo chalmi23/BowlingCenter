@@ -75,7 +75,7 @@ namespace BowlingCenter.Views
                 }
             }
         }
-        private void deleteReservationButton_Click(object sender, RoutedEventArgs e)
+        private void DeleteReservationButton_Click(object sender, RoutedEventArgs e)
         {
             var selectedReservation = reservationsDataGrid.SelectedItem;
             if (((BowlingCenter.ReservationData)selectedReservation).ReservationId == 0)
@@ -84,26 +84,26 @@ namespace BowlingCenter.Views
             }
             else
             {
-                ReservationData.deleteReservation(((BowlingCenter.ReservationData)selectedReservation).ReservationId);
+                ReservationData.DeleteReservation(((BowlingCenter.ReservationData)selectedReservation).ReservationId);
                 LoadDataGrid(sender, e);
             }
         }
-        private void changeDataByCalendar(object sender, SelectionChangedEventArgs e)
-        {
-            LoadDataGrid(sender, e);
-        }
-        private void comboBoxBowlingAlleys_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            LoadDataGrid(sender, e);
-        }
         private void FillComboBox()
         {
-            for (int i = 1; i <= 3; i++)
+            for (int i = 1; i <= 4; i++)
             {
                 string trackName = $"pool table: {i}";
                 comboBoxBowlingAlleys.Items.Add(trackName);
             }
             comboBoxBowlingAlleys.SelectedIndex = 0;
+        }
+        private void ChangeDataByCalendar(object sender, SelectionChangedEventArgs e)
+        {
+            LoadDataGrid(sender, e);
+        }
+        private void ComboBoxBowlingAlleys_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            LoadDataGrid(sender, e);
         }
     }
 }

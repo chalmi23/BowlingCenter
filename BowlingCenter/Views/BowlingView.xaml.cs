@@ -4,7 +4,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-
 namespace BowlingCenter.Views
 {
     public partial class BowlingView : UserControl
@@ -12,16 +11,14 @@ namespace BowlingCenter.Views
 
         private List<ReservationData> reservations = new List<ReservationData>();
         private List<ReservationData> reservationsFromDatabase = ReservationData.GetReservations(DateTime.UtcNow, 1, 1);
-
         public BowlingView()
         {
             InitializeComponent();
             reservationCalendar.SelectedDate = DateTime.Now.Date;
             Loaded += LoadDataGrid;
-            FillComboBoxWithTracks();
+            FillComboBox();
             reservationsDataGrid.Background = Brushes.LightBlue;
         }
-
         private void LoadDataGrid(object sender, RoutedEventArgs e)
         {
             reservations = ReservationData.InitializeReservationData(reservationCalendar.SelectedDate.Value);
@@ -79,16 +76,7 @@ namespace BowlingCenter.Views
                 }
             }
         }
-        private void changeDataByCalendar(object sender, SelectionChangedEventArgs e)
-        {
-            LoadDataGrid(sender, e);
-        }
-        private void comboBoxBowlingAlleys_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            LoadDataGrid(sender, e);
-        }
-
-        private void deleteReservationButton_Click(object sender, RoutedEventArgs e)
+        private void DeleteReservationButton_Click(object sender, RoutedEventArgs e)
         {
             var selectedReservation = reservationsDataGrid.SelectedItem;
             if(((BowlingCenter.ReservationData)selectedReservation).ReservationId == 0)
@@ -97,11 +85,11 @@ namespace BowlingCenter.Views
             }
             else
             {
-                ReservationData.deleteReservation(((BowlingCenter.ReservationData)selectedReservation).ReservationId);
+                ReservationData.DeleteReservation(((BowlingCenter.ReservationData)selectedReservation).ReservationId);
                 LoadDataGrid(sender, e);
             }
         }
-        private void FillComboBoxWithTracks()
+        private void FillComboBox()
         {
             for (int i = 1; i <= 3; i++)
             {
@@ -109,6 +97,14 @@ namespace BowlingCenter.Views
                 comboBoxBowlingAlleys.Items.Add(trackName);
             }
             comboBoxBowlingAlleys.SelectedIndex = 0;
+        }
+        private void ChangeDataByCalendar(object sender, SelectionChangedEventArgs e)
+        {
+            LoadDataGrid(sender, e);
+        }
+        private void ComboBoxBowlingAlleys_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            LoadDataGrid(sender, e);
         }
     }
 }

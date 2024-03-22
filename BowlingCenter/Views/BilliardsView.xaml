@@ -75,7 +75,7 @@
             <Label Width="Auto" Grid.Column="3" Content="BILLIARDS RESERVATIONS" Grid.ColumnSpan="4" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontStretch="Condensed" FontSize="16" FontFamily="Eras ITC" Background="{x:Null}" Foreground="Black" FontWeight="Bold"/>
         </Viewbox>
         <Viewbox Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4" Grid.RowSpan="5" VerticalAlignment="Bottom">
-            <Calendar x:Name="reservationCalendar" Language="English" HorizontalAlignment="Center" FontFamily="Yu Gothic UI Semibold" SelectedDatesChanged="changeDataByCalendar" Background="#FF9787C3" BorderBrush="#FF0F0367" Foreground="{x:Null}" BorderThickness="5,5,5,5"/>
+            <Calendar x:Name="reservationCalendar" Language="English" HorizontalAlignment="Center" FontFamily="Yu Gothic UI Semibold" SelectedDatesChanged="ChangeDataByCalendar" Background="#FF9787C3" BorderBrush="#FF0F0367" Foreground="{x:Null}" BorderThickness="5,5,5,5"/>
         </Viewbox>
         <Viewbox Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="7" Grid.RowSpan="7" HorizontalAlignment="Right" VerticalAlignment="Top">
             <DataGrid x:Name="reservationsDataGrid" BorderThickness="3" CanUserResizeColumns="False" CanUserResizeRows="False" HeadersVisibility="Column" GridLinesVisibility="All" SelectionMode="Single" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="35" AutoGenerateColumns="False" Background="Black" Foreground="#FFC4C1DA" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="Black">
@@ -112,13 +112,13 @@
         <Viewbox Grid.Row="11" Grid.Column="8" Grid.ColumnSpan="3" Grid.RowSpan="2" Margin="60,0,0,20">
             <Border BorderBrush="Black" BorderThickness="12" CornerRadius="66">
                 <Border BorderBrush="#FFA40A0A" BorderThickness="30" CornerRadius="40" Background="#FFA40A0A" Width="400" Height="170">
-                    <Button x:Name="deleteReservationButton" Template="{StaticResource NoMouseOverButtonTemplate}" Content="Delete reservation" Background="#FFA40A0A" FontFamily="Tw Cen MT Condensed Extra Bold" Click="deleteReservationButton_Click" BorderBrush="#FFA40A0A" FontSize="44" Margin="-23,-4,-24,-3"/>
+                    <Button x:Name="deleteReservationButton" Template="{StaticResource NoMouseOverButtonTemplate}" Content="Delete reservation" Background="#FFA40A0A" FontFamily="Tw Cen MT Condensed Extra Bold" Click="DeleteReservationButton_Click" BorderBrush="#FFA40A0A" FontSize="44" Margin="-23,-4,-24,-3"/>
                 </Border>
             </Border>
         </Viewbox>
         <Viewbox Grid.Row="2" Grid.Column="10" Grid.ColumnSpan="1">
             <Border BorderBrush="#FF0F0367" BorderThickness="5" Background="#FFA40A0A">
-                <ComboBox x:Name="comboBoxBowlingAlleys" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" SelectionChanged="comboBoxBowlingAlleys_SelectionChanged" Height="54" FontSize="25" VerticalContentAlignment="Center" FontFamily="Tw Cen MT Condensed Extra Bold" Foreground="Black"/>
+                <ComboBox x:Name="comboBoxBowlingAlleys" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" SelectionChanged="ComboBoxBowlingAlleys_SelectionChanged" Height="54" FontSize="25" VerticalContentAlignment="Center" FontFamily="Tw Cen MT Condensed Extra Bold" Foreground="Black"/>
             </Border>
         </Viewbox>
 

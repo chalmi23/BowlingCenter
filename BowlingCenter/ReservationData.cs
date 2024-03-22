@@ -72,8 +72,6 @@ namespace BowlingCenter
                 MessageBox.Show("Reservation added succesfully!", "AdminTool", MessageBoxButtons.OK);
             }
         }
-
-
         public static List<ReservationData> GetReservations(DateTime date, int typeId, int gameStation)
         {
             List<ReservationData> reservations = new List<ReservationData>();
@@ -107,11 +105,10 @@ namespace BowlingCenter
                     }
                 }
             }
-
             return reservations;
         }
 
-        public static void deleteReservation(int reservationId)
+        public static void DeleteReservation(int reservationId)
         {
             string connectionString = ConfigurationManager.AppSettings["ConnectionString"];
             using (SqlConnection connection = new SqlConnection(connectionString))
