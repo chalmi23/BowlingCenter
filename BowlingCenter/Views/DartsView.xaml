@@ -3,26 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:BowlingCenter.Views"
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="1200">
     <UserControl.Resources>
         <ControlTemplate x:Key="NoMouseOverButtonTemplate"   
              TargetType="Button">
             <Border Background="{TemplateBinding Background}"  
-      BorderBrush="{TemplateBinding BorderBrush}"  
-      BorderThickness="{TemplateBinding BorderThickness}">
+                 BorderBrush="{TemplateBinding BorderBrush}"  
+                BorderThickness="{TemplateBinding BorderThickness}">
                 <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"  
                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
             </Border>
-
-            <ControlTemplate.Triggers>
-                <Trigger Property="IsEnabled"  
-         Value="False">
-                    <Setter Property="Background"  
-          Value="{x:Static SystemColors.ControlLightBrush}" />
-                    <Setter Property="Foreground"  
-          Value="{x:Static SystemColors.GrayTextBrush}" />
+        <ControlTemplate.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Background" Value="{x:Static SystemColors.ControlLightBrush}" />
+                    <Setter Property="Foreground" Value="{x:Static SystemColors.GrayTextBrush}" />
                 </Trigger>
             </ControlTemplate.Triggers>
         </ControlTemplate>

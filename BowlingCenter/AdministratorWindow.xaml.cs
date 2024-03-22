@@ -23,27 +23,13 @@ namespace BowlingCenter
             DataContext = new BowlingViewModel();
         }
 
-        private void changeDataContext(object sender, RoutedEventArgs e) 
+        private void ChangeDataContext(object sender, RoutedEventArgs e) 
         {
            if(sender.ToString() == "System.Windows.Controls.Button: BOWLING") DataContext = new BowlingViewModel();
            else if(sender.ToString() == "System.Windows.Controls.Button: DARTS") DataContext = new DartsViewModel();
            else if(sender.ToString() == "System.Windows.Controls.Button: BILLIARDS") DataContext = new BilliardsViewModel();
            else if(sender.ToString() == "System.Windows.Controls.Button: SETTINGS") DataContext = new SettingsViewModel();
         }
-
-        private void ContentControl_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.ChangedButton == MouseButton.Left)
-            {
-                this.DragMove();
-            }
-        }
-
-        private void MinimizeWindowCommand(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.Close();
@@ -54,7 +40,7 @@ namespace BowlingCenter
             SystemCommands.MinimizeWindow(this);
         }
 
-        private void DockPanel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void DragMove_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
             {

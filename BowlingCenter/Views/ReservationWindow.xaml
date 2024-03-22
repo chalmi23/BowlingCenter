@@ -50,12 +50,12 @@
             <TextBox x:Name="phoneNumberTextBox" Background="#FF9787C3" MaxLength="10" Foreground="#FF0F0367" FontFamily="Tw Cen MT Condensed Extra Bold" Width="75" BorderBrush="Black" />
         </Viewbox>
         <Viewbox Grid.Column="3" Grid.ColumnSpan="4" Grid.Row="8">
-            <Button Content="reserve" Click="Button_Click" FontFamily="Tw Cen MT Condensed Extra Bold" Background="#FF9787C3" Foreground="#FF0F0367"  Height="33" BorderThickness="2" Width="122" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="0,0,0,0" BorderBrush="Black"/>
+            <Button Content="reserve" Click="ReserveButtonClick" FontFamily="Tw Cen MT Condensed Extra Bold" Background="#FF9787C3" Foreground="#FF0F0367"  Height="33" BorderThickness="2" Width="122" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="0,0,0,0" BorderBrush="Black"/>
         </Viewbox>
         <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="10">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
-                <Image Source="/pics/minimize.png" MouseLeftButtonDown="minimizeAddingWindow" Height="35" Width="35"/>
-                <Image Source="/pics/closepng.png" MouseLeftButtonDown="closeAddingWindow" Height="35" Width="35"/>
+                <Image Source="/pics/minimize.png" MouseLeftButtonDown="MinimizeAddingWindow" Height="35" Width="35"/>
+                <Image Source="/pics/closepng.png" MouseLeftButtonDown="CloseAddingWindow" Height="35" Width="35"/>
             </StackPanel>
         </DockPanel>
 

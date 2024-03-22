@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace BowlingCenter.Views
 {
-    /// <summary>
-    /// Logika interakcji dla klasy ReservationWindow.xaml
-    /// </summary>
     public partial class ReservationWindow : Window
     {
         public ReservationWindow()
@@ -24,17 +21,17 @@ namespace BowlingCenter.Views
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ReserveButtonClick(object sender, RoutedEventArgs e)
         {
             Close();
         }
 
-        private void closeAddingWindow(object sender, MouseButtonEventArgs e)
+        private void CloseAddingWindow(object sender, MouseButtonEventArgs e)
         {
             this.Close();
         }
 
-        private void minimizeAddingWindow(object sender, MouseButtonEventArgs e)
+        private void MinimizeAddingWindow(object sender, MouseButtonEventArgs e)
         {
             SystemCommands.MinimizeWindow(this);
         }

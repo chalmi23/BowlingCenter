@@ -8,8 +8,6 @@
         mc:Ignorable="d"
         Title="Administrator Panel" Height="700" Width="1400"
         WindowStyle="None" ResizeMode="NoResize">
-
-
     <Window.Resources>
         <DataTemplate x:Name="BowlingViewTemplate" DataType="{x:Type viewmodels:BowlingViewModel}">
             <views:BowlingView DataContext="{Binding}"/>
@@ -24,7 +22,6 @@
             <views:SettingsView DataContext="{Binding}"/>
         </DataTemplate>
     </Window.Resources>
-
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -68,15 +65,15 @@
 
         <DockPanel Background="#FF080640" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="19" RenderTransformOrigin="0.508,0.49">
             <StackPanel>
-                <Button Content="BOWLING" Click="changeDataContext" FontSize="30" Background="#FF7887C5" FontFamily="Copperplate Gothic Bold" Foreground="White"/>
-                <Button Content="DARTS" Click="changeDataContext" FontSize="30" Background="#FF7887C5" FontFamily="Copperplate Gothic Bold" Foreground="White"/>
-                <Button Content="BILLIARDS" Click="changeDataContext" FontSize="30" Background="#FF7887C5" FontFamily="Copperplate Gothic Bold" Foreground="White"/>
-                <Button Content="SETTINGS" Click="changeDataContext" FontSize="30" Background="#FF7887C5" FontFamily="Copperplate Gothic Bold" Foreground="White"/>
+                <Button Content="BOWLING" Click="ChangeDataContext" FontSize="30" Background="#FF7887C5" FontFamily="Copperplate Gothic Bold" Foreground="White"/>
+                <Button Content="DARTS" Click="ChangeDataContext" FontSize="30" Background="#FF7887C5" FontFamily="Copperplate Gothic Bold" Foreground="White"/>
+                <Button Content="BILLIARDS" Click="ChangeDataContext" FontSize="30" Background="#FF7887C5" FontFamily="Copperplate Gothic Bold" Foreground="White"/>
+                <Button Content="SETTINGS" Click="ChangeDataContext" FontSize="30" Background="#FF7887C5" FontFamily="Copperplate Gothic Bold" Foreground="White"/>
             </StackPanel>
         </DockPanel>
 
-        <ContentControl Content="{Binding}" Grid.Row="1" Grid.Column="3" Grid.RowSpan="18" Grid.ColumnSpan="15" MouseLeftButtonDown="ContentControl_MouseLeftButtonDown"/>
-        <DockPanel Background="#FF080640" Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="12" MouseLeftButtonDown="DockPanel_MouseLeftButtonDown">
+        <ContentControl Content="{Binding}" Grid.Row="1" Grid.Column="3" Grid.RowSpan="18" Grid.ColumnSpan="15" MouseLeftButtonDown="DragMove_MouseLeftButtonDown"/>
+        <DockPanel Background="#FF080640" Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="12" MouseLeftButtonDown="DragMove_MouseLeftButtonDown">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
                 <Image Source="/pics/minimize.png" MouseLeftButtonDown="Image_MouseLeftButtonDown_1" Height="35" Width="35"/>
                 <Image Source="/pics/closepng.png" MouseLeftButtonDown="Image_MouseLeftButtonDown" Height="35" Width="35"/>

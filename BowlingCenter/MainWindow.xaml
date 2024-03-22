@@ -3,12 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:viewmodels="clr-namespace:BowlingCenter.ViewModels"
-        xmlns:views="clr-namespace:BowlingCenter.Views"
-        xmlns:local="clr-namespace:BowlingCenter"
         mc:Ignorable="d"
         Title="Logowanie BowlingCenter" Height="700" Width="600"
-        MinWidth="300" MinHeight="300" Background="{x:Null}">
+        MinWidth="300" MinHeight="300" WindowStyle="None" Background="{x:Null}">
     <Window.Resources>
         <ControlTemplate x:Key="NoMouseOverButtonTemplate"   
                  TargetType="Button">
@@ -31,7 +28,7 @@
         </ControlTemplate>
     </Window.Resources>
 
-    <Grid Background="#FF080640" >
+    <Grid Background="#FF080640" MouseLeftButtonDown="Grid_MouseLeftButtonDown" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -60,8 +57,12 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-
-
+        <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="10">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                <Image Source="/pics/minimize.png" MouseLeftButtonDown="MinimizeAddingWindow" Height="35" Width="35"/>
+                <Image Source="/pics/closepng.png" MouseLeftButtonDown="CloseAddingWindow" Height="35" Width="35"/>
+            </StackPanel>
+        </DockPanel>
 
         <Viewbox Grid.Column="3" Grid.ColumnSpan="4" Grid.RowSpan="6">
             <Image HorizontalAlignment="Center" Height="255" VerticalAlignment="Center" Width="281" Source="/pics/logo.png"/>

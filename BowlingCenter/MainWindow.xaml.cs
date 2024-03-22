@@ -1,8 +1,8 @@
-﻿using System;
-using System.Configuration;
+﻿using System.Configuration;
 using System.Data.SqlClient;
 using System.Windows;
 using System.Windows.Forms;
+using System.Windows.Input;
 
 namespace BowlingCenter
 {
@@ -13,7 +13,6 @@ namespace BowlingCenter
             InitializeComponent();
         }
         readonly string connectionString = ConfigurationManager.AppSettings["ConnectionString"] ;
-
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -42,6 +41,24 @@ namespace BowlingCenter
                     }
                 }
             }
-        }       
+        }
+
+        private void MinimizeAddingWindow(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            SystemCommands.MinimizeWindow(this);
+        }
+
+        private void CloseAddingWindow(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Grid_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                this.DragMove();
+            }
+        }
     }
 }

@@ -66,8 +66,7 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-
-
+        
         <Viewbox Grid.Row="0" Grid.RowSpan="2" Grid.Column="2" Grid.ColumnSpan="8">
             <Label Width="Auto" Grid.Column="3" Content="BILLIARDS RESERVATIONS" Grid.ColumnSpan="4" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontStretch="Condensed" FontSize="16" FontFamily="Eras ITC" Background="{x:Null}" Foreground="White" FontWeight="Bold"/>
         </Viewbox>
